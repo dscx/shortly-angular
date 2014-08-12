@@ -1,10 +1,12 @@
 <div id='container'>
 <!-- Your code here -->
 <a href="/#/links"><h4>Links</h4></a>
-<input type="text" ng-model="link.url" placeholder="Enter URL..">
+<form name="urlCheck" ng-submit="addLink(urlCheck.$valid)" novalidate>
+  <input type="url" name="website" ng-model="link.url" placeholder="Enter URL.." required>
+</form>
 <button ng-click="addLink()">Shorten</button>
-<button ng-click="shortLink()">{{data}}</button>
-<!-- <button ng-click="shortLink()">{{url}}/api/links/{{code}}</button> -->
+<!-- <button ng-click="shortLink()">{{data}}</button> -->
+<button ng-click="">{{shortLink.base_url}}/api/links/{{shortLink.code}}</button>
 </div>
 
-
+<p ng-show="urlCheck.website.$invalid && !urlCheck.website.$pristine" class="help-block">Please enter valid URL</p>

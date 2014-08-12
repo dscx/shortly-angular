@@ -1,9 +1,13 @@
 <div id='signup'>
   <h1>signup</h1>
-  <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
+  <form name="signupForm" ng-submit='signup(signupForm.$valid)' novalidate>
+    <input type='text' name="username" ng-model='user.username' ng-minlength="3">
+    <input type="password" name="password" ng-model='user.password' ng-minlength="3">
     <button>signup</button>
   </form>
   <a href="#/signin">Already have an account? Signin ...</a>
 </div>
+
+
+<p ng-show="signupForm.username.$invalid && !signupForm.username.$pristine" class="help-block">username must be at least 3 characters</p>
+<p ng-show="signupForm.password.$invalid && !signupForm.password.$pristine" class="help-block">password must be at least 3 characters</p>

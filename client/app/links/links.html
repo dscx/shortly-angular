@@ -1,7 +1,10 @@
 <div id='container'>
   <!-- Your html here -->
   <a href="/#/shorten" ><h4>Shorten</h4></a>
+  <input ng-model="search" placeholder="search...">
   <ul>
-    <li ng-repeat="data in data.links">{{data.url}}, visited {{data.visits}} times, {{data.title}} <br> {{data}}</li>
+    <li ng-repeat="data in data.links | filter: search |orderBy:order:true">{{data.url}}, visited {{data.visits}} times, {{data.title}}</li>
   </ul>
+
+  <!-- {{data.links}} -->
 </div>

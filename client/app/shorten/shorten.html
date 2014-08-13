@@ -1,12 +1,8 @@
-<div id='container'>
 <!-- Your code here -->
-<a href="/#/links"><h4>Links</h4></a>
-<form name="urlCheck" ng-submit="addLink(urlCheck.$valid)" novalidate>
-  <input type="url" name="website" ng-model="link.url" placeholder="Enter URL.." required>
-</form>
-<button ng-click="addLink()">Shorten</button>
-<!-- <button ng-click="shortLink()">{{data}}</button> -->
-<button ng-click="">{{shortLink.base_url}}/api/links/{{shortLink.code}}</button>
-</div>
-
+<form class="form-inline" name="urlCheck" ng-submit="addLink(urlCheck.$valid)" novalidate>
+<div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+  <input class="form-control" type="url" name="website" ng-model="link.url" placeholder="Enter URL.." required>
+<button class="btn btn-default" ng-click="addLink()">Shorten</button>
 <p ng-show="urlCheck.website.$invalid && !urlCheck.website.$pristine" class="help-block">Please enter valid URL</p>
+</form>
+</div>

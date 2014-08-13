@@ -1,9 +1,12 @@
 <div id='container'>
   <!-- Your html here -->
-  <a href="/#/shorten" ><h4>Shorten</h4></a>
-  <input ng-model="search" placeholder="search...">
-  <ul>
-    <li ng-repeat="data in data.links | filter: search |orderBy:order:true">{{data.url}}, visited {{data.visits}} times, {{data.title}}</li>
+  <input ng-model="search" class="form-group" placeholder="search...">
+  <ul class="list-group col-md-5">
+    <li  class="list-group-item" ng-repeat="data in data.links | filter: search |orderBy:order:true">
+    <h4>{{data.title}}</h4>
+    <a href={{data.base_url}}/api/links/{{data.code}}>{{data.base_url}}/api/links/{{data.code}} </a> 
+    <span class="badge">{{data.visits}}</span>
+    </li>
   </ul>
 
   <!-- {{data.links}} -->
